@@ -1,0 +1,51 @@
+
+<form [formGroup]="form" style="margin-bottom:20px;">
+
+
+    <!-- Course name -->
+    <app-form-group [margin]="true" label="Name" [valid]="form.get('name')?.valid">
+        <input formControlName="name" type="text" class="form-control" placeholder="Course Name">
+    </app-form-group>
+
+
+    <!-- Course Fees -->
+    <app-form-group label="Fees" [margin]="true" [valid]="form.get('fees')?.valid">
+        <input type="number" formControlName="fees" class="form-control">
+    </app-form-group>
+
+    <!-- Course Duration -->
+    <app-form-group label="Duration" [margin]="true" [valid]="form.get('duration')?.valid">
+        <input type="number" formControlName="duration" class="form-control">
+    </app-form-group>
+
+    <!-- Course Level -->
+    <app-form-group label="Level" [margin]="true" [valid]="form.get('level')?.valid">
+        <select formControlName="level" class="form-select">
+            <option value="">Select Level</option>
+            <option *ngFor="let item of levels" [value]="item">{{ item }}</option>
+        </select>
+    </app-form-group>
+
+    <!-- Objective -->
+
+    <div class="d-flex justify-content-between">
+        <label for="form-label">Objectives</label>
+        <button [class.disabled]="!courseObjectives.controls[courseObjectives.length - 1 ].valid" (click)="addObjective()" class="btn btn-link text-dark">
+            <i class="bi bi-plus"></i>
+        </button>
+    </div>
+
+    <div class="d-flex mb-3" formArrayName="objectives" *ngFor="let item of courseObjectives.controls; index as i">
+        <input [formControlName]="i" type="text" class="form-control me-3" placeholder="Objectives">
+        <button [class.disable]="courseObjectives.length <= 1" (click)="removeObjective(i)" class="btn btn-outline-danger">
+            <i class="bi bi-trash"></i>
+        </button>
+    </div>
+
+    <div class="text-end">
+        <button [class.disabled]="!form.valid" type="button" (click)="create()" class="btn btn-outline-dark">
+            <i class="bi bi-save">Create</i>
+        </button>
+
+    </div>
+</form>

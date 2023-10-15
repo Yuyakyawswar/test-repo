@@ -1,0 +1,38 @@
+
+<h3>
+    <i class="bi bi-people-fill"></i> Member Management
+</h3>
+
+<div class="my-3">
+
+    <button class="btn btn-outline-warning">
+        <i class="bi bi-plus-lg"></i>
+    </button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>Role</td>
+            <td>Password</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mem of members">
+            <td>{{ mem.name}}</td>
+            <td>{{ mem.email}}</td>
+            <td>{{ mem.role}}</td>
+            <td>{{ show ? mem.password :mem.password | password }}<i class="bi bi-eye-slash"></i> </td>
+            <td>
+                <a [routerLink]="['/admin','users','detail',mem.email]" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-send-exclamation"></i>Details
+                </a>
+                <button class="btn btn-danger">
+                    <i class="bi bi-trash"></i>Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+<!-- <h2>String Interpolation</h2>
+
+<p>{{text | titlecase}}</p>
+
+<p class="fs-3">Number : {{ num || 300}}</p>
+
+<p class="fs-3">{{ope ?? 'Hello Null Coalescing'}}</p>
+
+<img src="assets/{{imageTitle}}" /> -->
+
+<div class="row">
+    <h3>Child to Parent</h3>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h4>Parent</h4>
+            </div>
+            <div class="card-body">
+                <!-- <p>{{childData || 'No Data' | json}}</p> -->
+                <div class="row">
+                    <div class="col-4">
+                        <p>Name: </p>
+                        <p>Fees :</p>
+                        <p>Duration : </p>
+                        <p>Level : </p>
+                        <p>Objectives : </p>
+                    </div>
+                    <div class="col">
+                        <p>{{ childData ?. name}}</p>
+                        <p>{{ childData ?. fees | number | mmk}} </p>
+                        <p>{{ childData ?. duration}}</p>
+                        <p>{{ childData ?. level}}</p>
+                        <p>{{ childData ?. objectives}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h4>Child</h4>
+            </div>
+            <div class="card-body">
+                <app-interpo-child (onCreate)="createData($event)"></app-interpo-child>
+            </div>
+        </div>
+    </div>
+</div>

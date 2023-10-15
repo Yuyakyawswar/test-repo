@@ -1,0 +1,8 @@
+
+
+<!-- <img [src]="srcValue" class="img-fluid"> -->
+
+<input #val (change)="nowValue = +val.value" type="range" [attr.value] = "nowValue" 
+        [attr.value] = "minValue" [attr.value]="maxValue">
+
+ <p>{{nowValue }}</p>

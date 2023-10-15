@@ -1,0 +1,17 @@
+
+
+<div class="row">
+    <div class="col-4 list-group">
+        <a logger color="bg-danger" [routerLink]="['/one-way','property']" routerLinkActive="active"
+         class="list-group-item list-group-item-active">Property binding</a>
+
+         <a logger color="bg-success" [routerLink]="['/one-way','attribute']" routerLinkActive="active"
+         class="list-group-item list-group-item-active">Attribute binding</a>
+
+         <a logger color="bg-warning" [routerLink]="['/one-way','event']" routerLinkActive="active"
+         class="list-group-item list-group-item-active">Event binding</a>
+    </div>
+    <div class="col-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>
